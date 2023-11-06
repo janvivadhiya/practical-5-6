@@ -1,0 +1,57 @@
+#include <iostream>
+#include <string>
+
+class Person {
+public:
+    Person(const std::string& name, int age)
+        : name(name), age(age) {
+    }
+
+    void display() {
+        std::cout << "Name: " << name << ", Age: " << age << std::endl;
+    }
+
+private:
+    std::string name;
+    int age;
+};
+
+class Student : public Person {
+public:
+    Student(const std::string& name, int age, const std::string& studentId)
+        : Person(name, age), studentId(studentId) {
+    }
+
+    void displayStudent() {
+        display();
+        std::cout << "Student ID: " << studentId << std::endl;
+    }
+
+private:
+    std::string studentId;
+};
+
+class GraduateStudent : public Student {
+public:
+    GraduateStudent(const std::string& name, int age, const std::string& studentId, const std::string& researchTopic)
+        : Student(name, age, studentId), researchTopic(researchTopic) {
+    }
+
+    void displayGraduateStudent() {
+        displayStudent();
+        std::cout << "Research Topic: " << researchTopic << std::endl;
+    }
+
+private:
+    std::string researchTopic;
+};
+
+int main() {
+ 
+    GraduateStudent gradStudent("Alice", 25, "S12345", "Machine Learning");
+
+   
+    gradStudent.displayGraduateStudent();
+
+    return 0;
+}
