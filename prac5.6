@@ -1,0 +1,36 @@
+#include <iostream>
+
+class Shape {
+public:
+    Shape() {}
+    void draw() {
+        std::cout << "Drawing a shape" << std::endl;
+    }
+};
+
+class Circle : public Shape {
+public:
+    Circle() {}
+    void draw() {
+        std::cout << "Drawing a circle" << std::endl;
+    }
+};
+
+class Square : public Shape {
+public:
+    Square() {}
+    void draw() {
+        std::cout << "Drawing a square" << std::endl;
+    }
+};
+
+int main() {
+    Shape* shapes[] = { new Circle(), new Square() };
+
+    for (int i = 0; i < 2; ++i) {
+        shapes[i]->draw(); 
+        delete shapes[i];
+    }
+
+    return 0;
+}
