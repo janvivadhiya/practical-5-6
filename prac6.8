@@ -1,1 +1,22 @@
+#include <iostream>
+#include <fstream>
+
+int main() {
+    
+    std::ofstream outputFile("test.txt");
+
+    if (!outputFile.is_open()) {
+        std::cerr << "Failed to open the file for writing." << std::endl;
+        return 1;
+    }
+
+    outputFile << "Hello, World!" << std::endl;
+    outputFile << "This is a test." << std::endl;
+
+    outputFile.close();
+
+    std::cout << "Data has been written to test.txt." << std::endl;
+
+    return 0;
+}
 
