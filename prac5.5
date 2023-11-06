@@ -1,0 +1,36 @@
+#include <iostream>
+
+class MyClass {
+private:
+    int data;
+
+public:
+    MyClass(int data) {
+        this->data = data; 
+    }
+
+    void setData(int data) {
+        this->data = data; 
+    }
+
+    int getData() {
+        return this->data;
+    }
+
+    void printAddress() {
+        std::cout << "Address of the current object (this pointer): " << this << std::endl;
+    }
+};
+
+int main() {
+    MyClass obj1(42);
+    MyClass obj2(99);
+
+    std::cout << "Data in obj1: " << obj1.getData() << std::endl;
+    std::cout << "Data in obj2: " << obj2.getData() << std::endl;
+
+    obj1.printAddress();
+    obj2.printAddress();
+
+    return 0;
+}
